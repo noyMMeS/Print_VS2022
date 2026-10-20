@@ -28,307 +28,395 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrint));
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
-            this.SuspendLayout();
+            statusStrip1 = new StatusStrip();
+            panelMain = new Panel();
+            pnlRibbon = new Panel();
+            panel1 = new Panel();
+            label2 = new Label();
+            button4 = new Button();
+            panel2 = new Panel();
+            pnlClipboard = new Panel();
+            btnCopiboard = new Button();
+            label1 = new Label();
+            pnlBorder = new Panel();
+            pnlTopBar = new Panel();
+            pnlIndicator = new Panel();
+            button3 = new Button();
+            button2 = new Button();
+            button1 = new Button();
+            pctrbox = new PictureBox();
+            panel3 = new Panel();
+            label3 = new Label();
+            button5 = new Button();
+            panel4 = new Panel();
+            panel5 = new Panel();
+            label4 = new Label();
+            button6 = new Button();
+            panel6 = new Panel();
+            panelMain.SuspendLayout();
+            pnlRibbon.SuspendLayout();
+            panel1.SuspendLayout();
+            pnlClipboard.SuspendLayout();
+            pnlTopBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pctrbox).BeginInit();
+            panel3.SuspendLayout();
+            panel5.SuspendLayout();
+            SuspendLayout();
             // 
             // statusStrip1
             // 
-            this.statusStrip1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.statusStrip1.Location = new System.Drawing.Point(0, 603);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(859, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
+            statusStrip1.BackColor = SystemColors.ButtonHighlight;
+            statusStrip1.Location = new Point(0, 603);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(865, 22);
+            statusStrip1.TabIndex = 1;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // panelMain
+            // 
+            panelMain.AutoScroll = true;
+            panelMain.BackColor = SystemColors.AppWorkspace;
+            panelMain.Controls.Add(pnlRibbon);
+            panelMain.Controls.Add(pnlTopBar);
+            panelMain.Controls.Add(pctrbox);
+            panelMain.Dock = DockStyle.Fill;
+            panelMain.Location = new Point(0, 0);
+            panelMain.Name = "panelMain";
+            panelMain.Size = new Size(865, 603);
+            panelMain.TabIndex = 2;
+            // 
+            // pnlRibbon
+            // 
+            pnlRibbon.BackColor = Color.White;
+            pnlRibbon.Controls.Add(panel5);
+            pnlRibbon.Controls.Add(panel3);
+            pnlRibbon.Controls.Add(panel1);
+            pnlRibbon.Controls.Add(pnlClipboard);
+            pnlRibbon.Dock = DockStyle.Top;
+            pnlRibbon.Location = new Point(0, 40);
+            pnlRibbon.Name = "pnlRibbon";
+            pnlRibbon.Padding = new Padding(5, 0, 5, 0);
+            pnlRibbon.Size = new Size(865, 110);
+            pnlRibbon.TabIndex = 2;
             // 
             // panel1
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel1.Controls.Add(this.toolStrip1);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(859, 579);
-            this.panel1.TabIndex = 2;
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(button4);
+            panel1.Controls.Add(panel2);
+            panel1.Location = new Point(100, 5);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(90, 100);
+            panel1.TabIndex = 3;
+            panel1.Paint += panel1_Paint;
             // 
-            // toolStrip1
+            // label2
             // 
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton2,
-            this.toolStripSeparator1,
-            this.toolStripButton9,
-            this.toolStripSeparator2,
-            this.toolStripButton8,
-            this.toolStripSeparator4,
-            this.toolStripButton7,
-            this.toolStripSeparator3,
-            this.toolStripButton6,
-            this.toolStripSeparator5,
-            this.toolStripButton5,
-            this.toolStripSeparator7,
-            this.toolStripButton4,
-            this.toolStripSeparator6,
-            this.toolStripButton3,
-            this.toolStripSeparator8,
-            this.toolStripButton1,
-            this.toolStripSeparator9});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(859, 65);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            label2.Dock = DockStyle.Bottom;
+            label2.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Gray;
+            label2.Location = new Point(0, 80);
+            label2.Name = "label2";
+            label2.Size = new Size(89, 20);
+            label2.TabIndex = 1;
+            label2.Text = "Буфер обмена";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // toolStripButton2
+            // button4
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(63, 62);
-            this.toolStripButton2.Text = "Clipboard";
-            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            button4.Cursor = Cursors.Hand;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Image = Properties.Resources.free_icon_paste_4043782;
+            button4.ImageAlign = ContentAlignment.TopCenter;
+            button4.Location = new Point(5, 3);
+            button4.Name = "button4";
+            button4.Size = new Size(78, 72);
+            button4.TabIndex = 2;
+            button4.Text = "Вставить";
+            button4.TextAlign = ContentAlignment.BottomCenter;
+            button4.TextImageRelation = TextImageRelation.ImageAboveText;
+            button4.UseVisualStyleBackColor = true;
             // 
-            // toolStripSeparator1
+            // panel2
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 65);
+            panel2.BackColor = Color.LightGray;
+            panel2.Dock = DockStyle.Right;
+            panel2.Location = new Point(89, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1, 100);
+            panel2.TabIndex = 0;
             // 
-            // toolStripButton9
+            // pnlClipboard
             // 
-            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
-            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(42, 62);
-            this.toolStripButton9.Text = "Eraser";
-            this.toolStripButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            pnlClipboard.Controls.Add(btnCopiboard);
+            pnlClipboard.Controls.Add(label1);
+            pnlClipboard.Controls.Add(pnlBorder);
+            pnlClipboard.Location = new Point(5, 5);
+            pnlClipboard.Name = "pnlClipboard";
+            pnlClipboard.Size = new Size(90, 100);
+            pnlClipboard.TabIndex = 0;
             // 
-            // toolStripSeparator2
+            // btnCopiboard
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 65);
+            btnCopiboard.Cursor = Cursors.Hand;
+            btnCopiboard.FlatAppearance.BorderSize = 0;
+            btnCopiboard.FlatStyle = FlatStyle.Flat;
+            btnCopiboard.Image = Properties.Resources.free_icon_paste_4043782;
+            btnCopiboard.ImageAlign = ContentAlignment.TopCenter;
+            btnCopiboard.Location = new Point(5, 5);
+            btnCopiboard.Name = "btnCopiboard";
+            btnCopiboard.Size = new Size(78, 72);
+            btnCopiboard.TabIndex = 2;
+            btnCopiboard.Text = "Вставить";
+            btnCopiboard.TextAlign = ContentAlignment.BottomCenter;
+            btnCopiboard.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnCopiboard.UseVisualStyleBackColor = true;
             // 
-            // toolStripButton8
+            // label1
             // 
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(41, 62);
-            this.toolStripButton8.Text = "Brush";
-            this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            label1.Dock = DockStyle.Bottom;
+            label1.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.Gray;
+            label1.Location = new Point(0, 80);
+            label1.Name = "label1";
+            label1.Size = new Size(89, 20);
+            label1.TabIndex = 1;
+            label1.Text = "Буфер обмена";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // toolStripSeparator4
+            // pnlBorder
             // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 65);
+            pnlBorder.BackColor = Color.LightGray;
+            pnlBorder.Dock = DockStyle.Right;
+            pnlBorder.Location = new Point(89, 0);
+            pnlBorder.Name = "pnlBorder";
+            pnlBorder.Size = new Size(1, 100);
+            pnlBorder.TabIndex = 0;
             // 
-            // toolStripButton7
+            // pnlTopBar
             // 
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(56, 62);
-            this.toolStripButton7.Text = "Zoom In";
-            this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            pnlTopBar.BackColor = Color.White;
+            pnlTopBar.Controls.Add(pnlIndicator);
+            pnlTopBar.Controls.Add(button3);
+            pnlTopBar.Controls.Add(button2);
+            pnlTopBar.Controls.Add(button1);
+            pnlTopBar.Dock = DockStyle.Top;
+            pnlTopBar.Location = new Point(0, 0);
+            pnlTopBar.Name = "pnlTopBar";
+            pnlTopBar.Size = new Size(865, 40);
+            pnlTopBar.TabIndex = 1;
             // 
-            // toolStripSeparator3
+            // pnlIndicator
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 65);
+            pnlIndicator.BackColor = SystemColors.ActiveCaption;
+            pnlIndicator.Location = new Point(90, 37);
+            pnlIndicator.Name = "pnlIndicator";
+            pnlIndicator.Size = new Size(80, 3);
+            pnlIndicator.TabIndex = 3;
             // 
-            // toolStripButton6
+            // button3
             // 
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(66, 62);
-            this.toolStripButton6.Text = "Zoom Out";
-            this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            button3.BackColor = Color.Transparent;
+            button3.Cursor = Cursors.Hand;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.ForeColor = Color.Black;
+            button3.Location = new Point(170, 0);
+            button3.Name = "button3";
+            button3.Size = new Size(80, 37);
+            button3.TabIndex = 2;
+            button3.Text = "View";
+            button3.UseVisualStyleBackColor = false;
             // 
-            // toolStripSeparator5
+            // button2
             // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 65);
+            button2.BackColor = Color.Transparent;
+            button2.Cursor = Cursors.Hand;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.ForeColor = Color.Black;
+            button2.Location = new Point(90, 0);
+            button2.Name = "button2";
+            button2.Size = new Size(80, 37);
+            button2.TabIndex = 1;
+            button2.Text = "Home";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
-            // toolStripButton5
+            // button1
             // 
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(42, 62);
-            this.toolStripButton5.Text = "Select";
-            this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            button1.BackColor = Color.Transparent;
+            button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.ForeColor = Color.Black;
+            button1.Location = new Point(10, 0);
+            button1.Name = "button1";
+            button1.Size = new Size(80, 37);
+            button1.TabIndex = 0;
+            button1.Text = "File";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
-            // toolStripSeparator7
+            // pctrbox
             // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 65);
+            pctrbox.Anchor = AnchorStyles.None;
+            pctrbox.BackColor = SystemColors.ControlLightLight;
+            pctrbox.BorderStyle = BorderStyle.FixedSingle;
+            pctrbox.Location = new Point(5, 156);
+            pctrbox.Name = "pctrbox";
+            pctrbox.Size = new Size(623, 428);
+            pctrbox.TabIndex = 0;
+            pctrbox.TabStop = false;
             // 
-            // toolStripButton4
+            // panel3
             // 
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(56, 62);
-            this.toolStripButton4.Text = "Шаблон";
-            this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            panel3.Controls.Add(label3);
+            panel3.Controls.Add(button5);
+            panel3.Controls.Add(panel4);
+            panel3.Location = new Point(196, 5);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(90, 100);
+            panel3.TabIndex = 4;
             // 
-            // toolStripSeparator6
+            // label3
             // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 65);
+            label3.Dock = DockStyle.Bottom;
+            label3.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.Gray;
+            label3.Location = new Point(0, 80);
+            label3.Name = "label3";
+            label3.Size = new Size(89, 20);
+            label3.TabIndex = 1;
+            label3.Text = "Буфер обмена";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // toolStripButton3
+            // button5
             // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(56, 62);
-            this.toolStripButton3.Text = "Шаблон";
-            this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            button5.Cursor = Cursors.Hand;
+            button5.FlatAppearance.BorderSize = 0;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Image = Properties.Resources.free_icon_paste_4043782;
+            button5.ImageAlign = ContentAlignment.TopCenter;
+            button5.Location = new Point(5, 3);
+            button5.Name = "button5";
+            button5.Size = new Size(78, 72);
+            button5.TabIndex = 2;
+            button5.Text = "Вставить";
+            button5.TextAlign = ContentAlignment.BottomCenter;
+            button5.TextImageRelation = TextImageRelation.ImageAboveText;
+            button5.UseVisualStyleBackColor = true;
             // 
-            // toolStripSeparator8
+            // panel4
             // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 65);
+            panel4.BackColor = Color.LightGray;
+            panel4.Dock = DockStyle.Right;
+            panel4.Location = new Point(89, 0);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1, 100);
+            panel4.TabIndex = 0;
             // 
-            // toolStripButton1
+            // panel5
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(56, 62);
-            this.toolStripButton1.Text = "Шаблон";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            panel5.Controls.Add(label4);
+            panel5.Controls.Add(button6);
+            panel5.Controls.Add(panel6);
+            panel5.Location = new Point(292, 5);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(90, 100);
+            panel5.TabIndex = 4;
             // 
-            // toolStripSeparator9
+            // label4
             // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 65);
+            label4.Dock = DockStyle.Bottom;
+            label4.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.Gray;
+            label4.Location = new Point(0, 80);
+            label4.Name = "label4";
+            label4.Size = new Size(89, 20);
+            label4.TabIndex = 1;
+            label4.Text = "Буфер обмена";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
+            // button6
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 68);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(623, 428);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            button6.Cursor = Cursors.Hand;
+            button6.FlatAppearance.BorderSize = 0;
+            button6.FlatStyle = FlatStyle.Flat;
+            button6.Image = Properties.Resources.free_icon_paste_4043782;
+            button6.ImageAlign = ContentAlignment.TopCenter;
+            button6.Location = new Point(5, 3);
+            button6.Name = "button6";
+            button6.Size = new Size(78, 72);
+            button6.TabIndex = 2;
+            button6.Text = "Вставить";
+            button6.TextAlign = ContentAlignment.BottomCenter;
+            button6.TextImageRelation = TextImageRelation.ImageAboveText;
+            button6.UseVisualStyleBackColor = true;
             // 
-            // fileToolStripMenuItem
+            // panel6
             // 
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.homeToolStripMenuItem,
-            this.viewToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(859, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // homeToolStripMenuItem
-            // 
-            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.homeToolStripMenuItem.Text = "Home";
-            this.homeToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
-            // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.viewToolStripMenuItem.Text = "View";
-            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
+            panel6.BackColor = Color.LightGray;
+            panel6.Dock = DockStyle.Right;
+            panel6.Location = new Point(89, 0);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(1, 100);
+            panel6.TabIndex = 0;
             // 
             // frmPrint
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 625);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "frmPrint";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.frmPrint_Load);
-            this.panel1.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(865, 625);
+            Controls.Add(panelMain);
+            Controls.Add(statusStrip1);
+            Name = "frmPrint";
+            Text = "Form1";
+            Load += frmPrint_Load;
+            panelMain.ResumeLayout(false);
+            pnlRibbon.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            pnlClipboard.ResumeLayout(false);
+            pnlTopBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pctrbox).EndInit();
+            panel3.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
         #endregion
-        private StatusStrip statusStrip1;
+
+        // Объявления элементов
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.PictureBox pctrbox;
+        private Panel pnlTopBar;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Panel pnlIndicator;
+        private Panel pnlRibbon;
+        private Panel pnlClipboard;
+        private Panel pnlBorder;
+        private Label label1;
+        private Button btnCopiboard;
+        private Button button4;
         private Panel panel1;
-        private PictureBox pictureBox1;
-        private ToolStripMenuItem fileToolStripMenuItem;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem homeToolStripMenuItem;
-        private ToolStripMenuItem viewToolStripMenuItem;
-        private ToolStrip toolStrip1;
-        private ToolStripButton toolStripButton2;
-        private ToolStripButton toolStripButton9;
-        private ToolStripButton toolStripButton8;
-        private ToolStripButton toolStripButton7;
-        private ToolStripButton toolStripButton6;
-        private ToolStripButton toolStripButton5;
-        private ToolStripButton toolStripButton4;
-        private ToolStripButton toolStripButton3;
-        private ToolStripButton toolStripButton1;
-        private ToolStripSeparator toolStripSeparator1;
-        private ToolStripSeparator toolStripSeparator2;
-        private ToolStripSeparator toolStripSeparator4;
-        private ToolStripSeparator toolStripSeparator3;
-        private ToolStripSeparator toolStripSeparator5;
-        private ToolStripSeparator toolStripSeparator7;
-        private ToolStripSeparator toolStripSeparator6;
-        private ToolStripSeparator toolStripSeparator8;
-        private ToolStripSeparator toolStripSeparator9;
+        private Label label2;
+        private Panel panel2;
+        private Panel panel5;
+        private Label label4;
+        private Button button6;
+        private Panel panel6;
+        private Panel panel3;
+        private Label label3;
+        private Button button5;
+        private Panel panel4;
     }
 }

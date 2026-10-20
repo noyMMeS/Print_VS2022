@@ -11,18 +11,46 @@ namespace Print_VS2022
         {
 
         }
+        private void Home_Click(object sender, EventArgs e)
+        {
 
+        }
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void viewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
-        private void Home_Click(object sender, EventArgs e)
+        private void toolStripView_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripHome_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
