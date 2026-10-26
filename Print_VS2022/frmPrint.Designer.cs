@@ -31,9 +31,22 @@
             statusStrip1 = new StatusStrip();
             panelMain = new Panel();
             pnlRibbon = new Panel();
-            panel1 = new Panel();
-            label2 = new Label();
-            button4 = new Button();
+            pnlColor = new Panel();
+            lblColor = new Label();
+            btnclrBlack = new Button();
+            panel7 = new Panel();
+            pnlShapes = new Panel();
+            lblShapes = new Label();
+            btnCircle = new Button();
+            panel6 = new Panel();
+            pnlTools = new Panel();
+            lblTools = new Label();
+            btnEraser = new Button();
+            btnBrush = new Button();
+            panel4 = new Panel();
+            pnlImage = new Panel();
+            lblImage = new Label();
+            btnImage = new Button();
             panel2 = new Panel();
             pnlClipboard = new Panel();
             btnCopiboard = new Button();
@@ -45,32 +58,31 @@
             button2 = new Button();
             button1 = new Button();
             pctrbox = new PictureBox();
-            panel3 = new Panel();
-            label3 = new Label();
-            button5 = new Button();
-            panel4 = new Panel();
-            panel5 = new Panel();
-            label4 = new Label();
-            button6 = new Button();
-            panel6 = new Panel();
+            lblCords = new ToolStripStatusLabel();
+            lblSize = new ToolStripStatusLabel();
+            lblZoom = new ToolStripStatusLabel();
+            statusStrip1.SuspendLayout();
             panelMain.SuspendLayout();
             pnlRibbon.SuspendLayout();
-            panel1.SuspendLayout();
+            pnlColor.SuspendLayout();
+            pnlShapes.SuspendLayout();
+            pnlTools.SuspendLayout();
+            pnlImage.SuspendLayout();
             pnlClipboard.SuspendLayout();
             pnlTopBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pctrbox).BeginInit();
-            panel3.SuspendLayout();
-            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // statusStrip1
             // 
             statusStrip1.BackColor = SystemColors.ButtonHighlight;
+            statusStrip1.Items.AddRange(new ToolStripItem[] { lblCords, lblSize, lblZoom });
             statusStrip1.Location = new Point(0, 603);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(865, 22);
             statusStrip1.TabIndex = 1;
             statusStrip1.Text = "statusStrip1";
+            statusStrip1.ItemClicked += statusStrip1_ItemClicked;
             // 
             // panelMain
             // 
@@ -84,13 +96,15 @@
             panelMain.Name = "panelMain";
             panelMain.Size = new Size(865, 603);
             panelMain.TabIndex = 2;
+            panelMain.Resize += panelMain_Resize;
             // 
             // pnlRibbon
             // 
             pnlRibbon.BackColor = Color.White;
-            pnlRibbon.Controls.Add(panel5);
-            pnlRibbon.Controls.Add(panel3);
-            pnlRibbon.Controls.Add(panel1);
+            pnlRibbon.Controls.Add(pnlColor);
+            pnlRibbon.Controls.Add(pnlShapes);
+            pnlRibbon.Controls.Add(pnlTools);
+            pnlRibbon.Controls.Add(pnlImage);
             pnlRibbon.Controls.Add(pnlClipboard);
             pnlRibbon.Dock = DockStyle.Top;
             pnlRibbon.Location = new Point(0, 40);
@@ -98,45 +112,203 @@
             pnlRibbon.Padding = new Padding(5, 0, 5, 0);
             pnlRibbon.Size = new Size(865, 110);
             pnlRibbon.TabIndex = 2;
+            pnlRibbon.Paint += pnlRibbon_Paint;
             // 
-            // panel1
+            // pnlColor
             // 
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(button4);
-            panel1.Controls.Add(panel2);
-            panel1.Location = new Point(100, 5);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(90, 100);
-            panel1.TabIndex = 3;
-            panel1.Paint += panel1_Paint;
+            pnlColor.Controls.Add(lblColor);
+            pnlColor.Controls.Add(btnclrBlack);
+            pnlColor.Controls.Add(panel7);
+            pnlColor.Location = new Point(495, 5);
+            pnlColor.Name = "pnlColor";
+            pnlColor.Size = new Size(133, 100);
+            pnlColor.TabIndex = 5;
             // 
-            // label2
+            // lblColor
             // 
-            label2.Dock = DockStyle.Bottom;
-            label2.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.ForeColor = Color.Gray;
-            label2.Location = new Point(0, 80);
-            label2.Name = "label2";
-            label2.Size = new Size(89, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Буфер обмена";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            lblColor.Dock = DockStyle.Bottom;
+            lblColor.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblColor.ForeColor = Color.Gray;
+            lblColor.Location = new Point(0, 80);
+            lblColor.Name = "lblColor";
+            lblColor.Size = new Size(132, 20);
+            lblColor.TabIndex = 1;
+            lblColor.Text = "Color";
+            lblColor.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // button4
+            // btnclrBlack
             // 
-            button4.Cursor = Cursors.Hand;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Image = Properties.Resources.free_icon_paste_4043782;
-            button4.ImageAlign = ContentAlignment.TopCenter;
-            button4.Location = new Point(5, 3);
-            button4.Name = "button4";
-            button4.Size = new Size(78, 72);
-            button4.TabIndex = 2;
-            button4.Text = "Вставить";
-            button4.TextAlign = ContentAlignment.BottomCenter;
-            button4.TextImageRelation = TextImageRelation.ImageAboveText;
-            button4.UseVisualStyleBackColor = true;
+            btnclrBlack.Cursor = Cursors.Hand;
+            btnclrBlack.FlatAppearance.BorderSize = 0;
+            btnclrBlack.FlatStyle = FlatStyle.Flat;
+            btnclrBlack.Image = Properties.Resources.black_circle;
+            btnclrBlack.ImageAlign = ContentAlignment.TopCenter;
+            btnclrBlack.Location = new Point(32, 17);
+            btnclrBlack.Name = "btnclrBlack";
+            btnclrBlack.Size = new Size(73, 48);
+            btnclrBlack.TabIndex = 2;
+            btnclrBlack.TextAlign = ContentAlignment.BottomCenter;
+            btnclrBlack.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnclrBlack.UseVisualStyleBackColor = true;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.LightGray;
+            panel7.Dock = DockStyle.Right;
+            panel7.Location = new Point(132, 0);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(1, 100);
+            panel7.TabIndex = 0;
+            // 
+            // pnlShapes
+            // 
+            pnlShapes.Controls.Add(lblShapes);
+            pnlShapes.Controls.Add(btnCircle);
+            pnlShapes.Controls.Add(panel6);
+            pnlShapes.Location = new Point(394, 5);
+            pnlShapes.Name = "pnlShapes";
+            pnlShapes.Size = new Size(90, 100);
+            pnlShapes.TabIndex = 4;
+            // 
+            // lblShapes
+            // 
+            lblShapes.Dock = DockStyle.Bottom;
+            lblShapes.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblShapes.ForeColor = Color.Gray;
+            lblShapes.Location = new Point(0, 80);
+            lblShapes.Name = "lblShapes";
+            lblShapes.Size = new Size(89, 20);
+            lblShapes.TabIndex = 1;
+            lblShapes.Text = "Shapes";
+            lblShapes.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnCircle
+            // 
+            btnCircle.Cursor = Cursors.Hand;
+            btnCircle.FlatAppearance.BorderSize = 0;
+            btnCircle.FlatStyle = FlatStyle.Flat;
+            btnCircle.Image = Properties.Resources.dry_clean;
+            btnCircle.ImageAlign = ContentAlignment.TopCenter;
+            btnCircle.Location = new Point(5, 3);
+            btnCircle.Name = "btnCircle";
+            btnCircle.Size = new Size(78, 72);
+            btnCircle.TabIndex = 2;
+            btnCircle.Text = "Circle";
+            btnCircle.TextAlign = ContentAlignment.BottomCenter;
+            btnCircle.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnCircle.UseVisualStyleBackColor = true;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.LightGray;
+            panel6.Dock = DockStyle.Right;
+            panel6.Location = new Point(89, 0);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(1, 100);
+            panel6.TabIndex = 0;
+            // 
+            // pnlTools
+            // 
+            pnlTools.Controls.Add(lblTools);
+            pnlTools.Controls.Add(btnEraser);
+            pnlTools.Controls.Add(btnBrush);
+            pnlTools.Controls.Add(panel4);
+            pnlTools.Location = new Point(196, 5);
+            pnlTools.Name = "pnlTools";
+            pnlTools.Size = new Size(192, 100);
+            pnlTools.TabIndex = 4;
+            // 
+            // lblTools
+            // 
+            lblTools.Dock = DockStyle.Bottom;
+            lblTools.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTools.ForeColor = Color.Gray;
+            lblTools.Location = new Point(0, 80);
+            lblTools.Name = "lblTools";
+            lblTools.Size = new Size(191, 20);
+            lblTools.TabIndex = 1;
+            lblTools.Text = "Tools";
+            lblTools.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnEraser
+            // 
+            btnEraser.Cursor = Cursors.Hand;
+            btnEraser.FlatAppearance.BorderSize = 0;
+            btnEraser.FlatStyle = FlatStyle.Flat;
+            btnEraser.Image = Properties.Resources.eraser;
+            btnEraser.ImageAlign = ContentAlignment.TopCenter;
+            btnEraser.Location = new Point(107, 3);
+            btnEraser.Name = "btnEraser";
+            btnEraser.Size = new Size(78, 72);
+            btnEraser.TabIndex = 2;
+            btnEraser.Text = "Eraser";
+            btnEraser.TextAlign = ContentAlignment.BottomCenter;
+            btnEraser.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnEraser.UseVisualStyleBackColor = true;
+            // 
+            // btnBrush
+            // 
+            btnBrush.Cursor = Cursors.Hand;
+            btnBrush.FlatAppearance.BorderSize = 0;
+            btnBrush.FlatStyle = FlatStyle.Flat;
+            btnBrush.Image = Properties.Resources.paintbrush;
+            btnBrush.ImageAlign = ContentAlignment.TopCenter;
+            btnBrush.Location = new Point(5, 3);
+            btnBrush.Name = "btnBrush";
+            btnBrush.Size = new Size(78, 72);
+            btnBrush.TabIndex = 2;
+            btnBrush.Text = "brush";
+            btnBrush.TextAlign = ContentAlignment.BottomCenter;
+            btnBrush.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnBrush.UseVisualStyleBackColor = true;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.LightGray;
+            panel4.Dock = DockStyle.Right;
+            panel4.Location = new Point(191, 0);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1, 100);
+            panel4.TabIndex = 0;
+            // 
+            // pnlImage
+            // 
+            pnlImage.Controls.Add(lblImage);
+            pnlImage.Controls.Add(btnImage);
+            pnlImage.Controls.Add(panel2);
+            pnlImage.Location = new Point(100, 5);
+            pnlImage.Name = "pnlImage";
+            pnlImage.Size = new Size(90, 100);
+            pnlImage.TabIndex = 3;
+            pnlImage.Paint += panel1_Paint;
+            // 
+            // lblImage
+            // 
+            lblImage.Dock = DockStyle.Bottom;
+            lblImage.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblImage.ForeColor = Color.Gray;
+            lblImage.Location = new Point(0, 80);
+            lblImage.Name = "lblImage";
+            lblImage.Size = new Size(89, 20);
+            lblImage.TabIndex = 1;
+            lblImage.Text = "Image";
+            lblImage.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnImage
+            // 
+            btnImage.Cursor = Cursors.Hand;
+            btnImage.FlatAppearance.BorderSize = 0;
+            btnImage.FlatStyle = FlatStyle.Flat;
+            btnImage.Image = Properties.Resources.image;
+            btnImage.ImageAlign = ContentAlignment.TopCenter;
+            btnImage.Location = new Point(5, 3);
+            btnImage.Name = "btnImage";
+            btnImage.Size = new Size(78, 72);
+            btnImage.TabIndex = 2;
+            btnImage.Text = "Select";
+            btnImage.TextAlign = ContentAlignment.BottomCenter;
+            btnImage.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnImage.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -168,7 +340,7 @@
             btnCopiboard.Name = "btnCopiboard";
             btnCopiboard.Size = new Size(78, 72);
             btnCopiboard.TabIndex = 2;
-            btnCopiboard.Text = "Вставить";
+            btnCopiboard.Text = "Paste";
             btnCopiboard.TextAlign = ContentAlignment.BottomCenter;
             btnCopiboard.TextImageRelation = TextImageRelation.ImageAboveText;
             btnCopiboard.UseVisualStyleBackColor = true;
@@ -182,7 +354,7 @@
             label1.Name = "label1";
             label1.Size = new Size(89, 20);
             label1.TabIndex = 1;
-            label1.Text = "Буфер обмена";
+            label1.Text = "Clipboard";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pnlBorder
@@ -273,99 +445,24 @@
             pctrbox.TabIndex = 0;
             pctrbox.TabStop = false;
             // 
-            // panel3
+            // lblCords
             // 
-            panel3.Controls.Add(label3);
-            panel3.Controls.Add(button5);
-            panel3.Controls.Add(panel4);
-            panel3.Location = new Point(196, 5);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(90, 100);
-            panel3.TabIndex = 4;
+            lblCords.Name = "lblCords";
+            lblCords.Size = new Size(48, 17);
+            lblCords.Text = "X: 0 Y: 0";
             // 
-            // label3
+            // lblSize
             // 
-            label3.Dock = DockStyle.Bottom;
-            label3.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.ForeColor = Color.Gray;
-            label3.Location = new Point(0, 80);
-            label3.Name = "label3";
-            label3.Size = new Size(89, 20);
-            label3.TabIndex = 1;
-            label3.Text = "Буфер обмена";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
+            lblSize.Name = "lblSize";
+            lblSize.Size = new Size(55, 17);
+            lblSize.Text = "800 x 600";
             // 
-            // button5
+            // lblZoom
             // 
-            button5.Cursor = Cursors.Hand;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Image = Properties.Resources.free_icon_paste_4043782;
-            button5.ImageAlign = ContentAlignment.TopCenter;
-            button5.Location = new Point(5, 3);
-            button5.Name = "button5";
-            button5.Size = new Size(78, 72);
-            button5.TabIndex = 2;
-            button5.Text = "Вставить";
-            button5.TextAlign = ContentAlignment.BottomCenter;
-            button5.TextImageRelation = TextImageRelation.ImageAboveText;
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.LightGray;
-            panel4.Dock = DockStyle.Right;
-            panel4.Location = new Point(89, 0);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(1, 100);
-            panel4.TabIndex = 0;
-            // 
-            // panel5
-            // 
-            panel5.Controls.Add(label4);
-            panel5.Controls.Add(button6);
-            panel5.Controls.Add(panel6);
-            panel5.Location = new Point(292, 5);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(90, 100);
-            panel5.TabIndex = 4;
-            // 
-            // label4
-            // 
-            label4.Dock = DockStyle.Bottom;
-            label4.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.ForeColor = Color.Gray;
-            label4.Location = new Point(0, 80);
-            label4.Name = "label4";
-            label4.Size = new Size(89, 20);
-            label4.TabIndex = 1;
-            label4.Text = "Буфер обмена";
-            label4.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // button6
-            // 
-            button6.Cursor = Cursors.Hand;
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Image = Properties.Resources.free_icon_paste_4043782;
-            button6.ImageAlign = ContentAlignment.TopCenter;
-            button6.Location = new Point(5, 3);
-            button6.Name = "button6";
-            button6.Size = new Size(78, 72);
-            button6.TabIndex = 2;
-            button6.Text = "Вставить";
-            button6.TextAlign = ContentAlignment.BottomCenter;
-            button6.TextImageRelation = TextImageRelation.ImageAboveText;
-            button6.UseVisualStyleBackColor = true;
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.LightGray;
-            panel6.Dock = DockStyle.Right;
-            panel6.Location = new Point(89, 0);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(1, 100);
-            panel6.TabIndex = 0;
+            lblZoom.Name = "lblZoom";
+            lblZoom.Size = new Size(747, 17);
+            lblZoom.Spring = true;
+            lblZoom.Text = "100%";
             // 
             // frmPrint
             // 
@@ -377,14 +474,17 @@
             Name = "frmPrint";
             Text = "Form1";
             Load += frmPrint_Load;
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             panelMain.ResumeLayout(false);
             pnlRibbon.ResumeLayout(false);
-            panel1.ResumeLayout(false);
+            pnlColor.ResumeLayout(false);
+            pnlShapes.ResumeLayout(false);
+            pnlTools.ResumeLayout(false);
+            pnlImage.ResumeLayout(false);
             pnlClipboard.ResumeLayout(false);
             pnlTopBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pctrbox).EndInit();
-            panel3.ResumeLayout(false);
-            panel5.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
 
@@ -406,17 +506,25 @@
         private Panel pnlBorder;
         private Label label1;
         private Button btnCopiboard;
-        private Button button4;
-        private Panel panel1;
-        private Label label2;
+        private Button btnImage;
+        private Panel pnlImage;
+        private Label lblImage;
         private Panel panel2;
-        private Panel panel5;
-        private Label label4;
-        private Button button6;
+        private Panel pnlShapes;
+        private Label lblShapes;
+        private Button btnCircle;
         private Panel panel6;
-        private Panel panel3;
-        private Label label3;
-        private Button button5;
+        private Panel pnlTools;
+        private Label lblTools;
+        private Button btnBrush;
         private Panel panel4;
+        private Panel pnlColor;
+        private Label lblColor;
+        private Button btnclrBlack;
+        private Panel panel7;
+        private Button btnEraser;
+        private ToolStripStatusLabel lblCords;
+        private ToolStripStatusLabel lblSize;
+        private ToolStripStatusLabel lblZoom;
     }
 }

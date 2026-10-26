@@ -54,5 +54,20 @@ namespace Print_VS2022
         {
 
         }
+
+        private void pnlRibbon_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelMain_Resize(object sender, EventArgs e)
+        {
+            pctrbox.Left = (panelMain.Width - pctrbox.Width) / 2;
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
