@@ -82,7 +82,6 @@
             statusStrip1.Size = new Size(865, 22);
             statusStrip1.TabIndex = 1;
             statusStrip1.Text = "statusStrip1";
-            statusStrip1.ItemClicked += statusStrip1_ItemClicked;
             // 
             // panelMain
             // 
@@ -96,7 +95,6 @@
             panelMain.Name = "panelMain";
             panelMain.Size = new Size(865, 603);
             panelMain.TabIndex = 2;
-            panelMain.Resize += panelMain_Resize;
             // 
             // pnlRibbon
             // 
@@ -112,7 +110,6 @@
             pnlRibbon.Padding = new Padding(5, 0, 5, 0);
             pnlRibbon.Size = new Size(865, 110);
             pnlRibbon.TabIndex = 2;
-            pnlRibbon.Paint += pnlRibbon_Paint;
             // 
             // pnlColor
             // 
@@ -280,7 +277,6 @@
             pnlImage.Name = "pnlImage";
             pnlImage.Size = new Size(90, 100);
             pnlImage.TabIndex = 3;
-            pnlImage.Paint += panel1_Paint;
             // 
             // lblImage
             // 
@@ -416,7 +412,6 @@
             button2.TabIndex = 1;
             button2.Text = "Home";
             button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -432,7 +427,6 @@
             button1.TabIndex = 0;
             button1.Text = "File";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // pctrbox
             // 
