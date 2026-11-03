@@ -10,11 +10,9 @@ namespace Print_VS2022
     {
         public Bitmap bmp;
         public Graphics g;
-
         public bool isDrawing = false;
         public Point startPoint;
         public Point lastPoint;
-
         public string currentTool = "Brush";
         public Color currentColor = Color.Black;
         public Rectangle selectionRect;
@@ -22,26 +20,6 @@ namespace Print_VS2022
         public frmPrint()
         {
             InitializeComponent();
-            InitEvents();
-        }
-
-        public void InitEvents()
-        {
-            pctrbox.MouseDown += pctrbox_MouseDown;
-            pctrbox.MouseMove += pctrbox_MouseMove;
-            pctrbox.MouseUp += pctrbox_MouseUp;
-            pctrbox.Paint += pctrbox_Paint;
-
-            btnBrush.Click += btnTools_Click;
-            btnEraser.Click += btnTools_Click;
-            btnCircle.Click += btnTools_Click;
-            btnImage.Click += btnTools_Click;
-            btnCopiboard.Click += btnPaste_Click;
-            btnclrBlack.Click += btnColors_Click;
-
-            button1.Click += btnTab_Click;
-            button2.Click += btnTab_Click;
-            button3.Click += btnTab_Click;
         }
 
         public void frmPrint_Load(object sender, EventArgs e)
@@ -50,14 +28,12 @@ namespace Print_VS2022
             g = Graphics.FromImage(bmp);
             g.Clear(Color.White);
             pctrbox.Image = bmp;
-
             lblSize.Text = $"{bmp.Width} x {bmp.Height}";
         }
 
         public void pctrbox_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left) return;
-
             isDrawing = true;
             startPoint = e.Location;
             lastPoint = e.Location;
@@ -73,7 +49,6 @@ namespace Print_VS2022
         public void pctrbox_MouseMove(object sender, MouseEventArgs e)
         {
             lblCords.Text = $"X: {e.X} Y: {e.Y}";
-
             if (!isDrawing) return;
 
             bool isFreeDraw = currentTool.Equals("Pen", StringComparison.OrdinalIgnoreCase) ||
@@ -90,10 +65,8 @@ namespace Print_VS2022
                     pen.StartCap = pen.EndCap = LineCap.Round;
                     g.DrawLine(pen, lastPoint, e.Location);
                 }
-
                 lastPoint = e.Location;
             }
-
             pctrbox.Invalidate();
         }
 
@@ -101,7 +74,6 @@ namespace Print_VS2022
         {
             if (!isDrawing) return;
             isDrawing = false;
-
             Rectangle rect = GetRect(startPoint, e.Location);
 
             if (currentTool.Equals("Select", StringComparison.OrdinalIgnoreCase))
@@ -115,14 +87,12 @@ namespace Print_VS2022
                     DrawShape(g, pen, rect, currentTool);
                 }
             }
-
             pctrbox.Invalidate();
         }
 
         public void pctrbox_Paint(object sender, PaintEventArgs e)
         {
             if (!isDrawing) return;
-
             Point currentPoint = pctrbox.PointToClient(Cursor.Position);
             Rectangle rect = GetRect(startPoint, currentPoint);
 
@@ -136,12 +106,57 @@ namespace Print_VS2022
             }
         }
 
+        public void btnTools_Click(object sender, EventArgs e) =>
+            currentTool = sender is Button btn ? (btn.Tag != null ? btn.Tag.ToString() : btn.Text) : currentTool;
+
+        public void btnColors_Click(object sender, EventArgs e) =>
+            currentColor = sender is Button btn ? (btn.BackColor != SystemColors.Control ? btn.BackColor : Color.Black) : currentColor;
+
+        public void btnTab_Click(object sender, EventArgs e)
+        {
+            if (sender is Button btn)
+            {
+                pnlIndicator.Left = btn.Left;
+                pnlIndicator.Width = btn.Width;
+            }
+        }
+
+        public void btnRotate_Click(object sender, EventArgs e)
+        {
+            bmp.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            pctrbox.Size = new Size(bmp.Width, bmp.Height);
+            g.Dispose();
+            g = Graphics.FromImage(bmp);
+            lblSize.Text = $"{bmp.Width} x {bmp.Height}";
+            pctrbox.Invalidate();
+        }
+
+        public void btnCopy_Click(object sender, EventArgs e)
+        {
+            Rectangle rect = Rectangle.Intersect(new Rectangle(0, 0, bmp.Width, bmp.Height), selectionRect);
+            if (rect.Width <= 0 || rect.Height <= 0) return;
+
+            using (Bitmap copyBmp = bmp.Clone(rect, bmp.PixelFormat))
+            {
+                Clipboard.SetImage(copyBmp);
+            }
+        }
+
+        public void btnPaste_Click(object sender, EventArgs e)
+        {
+            if (!Clipboard.ContainsImage()) return;
+            using (Image clipImg = Clipboard.GetImage())
+            {
+                if (clipImg == null) return;
+                g.DrawImage(clipImg, 0, 0);
+                pctrbox.Invalidate();
+            }
+        }
+
         public void DrawShape(Graphics gr, Pen pen, Rectangle rect, string tool)
         {
             int side = Math.Min(rect.Width, rect.Height);
-
-            Point[] triangle =
-            {
+            Point[] triangle = {
                 new Point(rect.X + rect.Width / 2, rect.Y),
                 new Point(rect.X, rect.Bottom),
                 new Point(rect.Right, rect.Bottom)
@@ -187,54 +202,24 @@ namespace Print_VS2022
             }
         }
 
-        public void btnTools_Click(object sender, EventArgs e) =>
-            currentTool = sender is Button btn ? (btn.Tag != null ? btn.Tag.ToString() : btn.Text) : currentTool;
-
-        public void btnColors_Click(object sender, EventArgs e) =>
-            currentColor = sender is Button btn ? (btn.BackColor != SystemColors.Control ? btn.BackColor : Color.Black) : currentColor;
-
-        public void btnTab_Click(object sender, EventArgs e)
+        private void btnImage_Click(object sender, EventArgs e)
         {
-            if (sender is Button btn)
-            {
-                pnlIndicator.Left = btn.Left;
-                pnlIndicator.Width = btn.Width;
-            }
+
         }
 
-        public void btnRotate_Click(object sender, EventArgs e)
+        private void btnpalette_Click(object sender, EventArgs e)
         {
-            bmp.RotateFlip(RotateFlipType.Rotate90FlipNone);
-            pctrbox.Size = new Size(bmp.Width, bmp.Height);
-
-            g.Dispose();
-            g = Graphics.FromImage(bmp);
-
-            lblSize.Text = $"{bmp.Width} x {bmp.Height}";
-            pctrbox.Invalidate();
-        }
-
-        public void btnCopy_Click(object sender, EventArgs e)
-        {
-            Rectangle rect = Rectangle.Intersect(new Rectangle(0, 0, bmp.Width, bmp.Height), selectionRect);
-            if (rect.Width <= 0 || rect.Height <= 0) return;
-
-            using (Bitmap copyBmp = bmp.Clone(rect, bmp.PixelFormat))
+            using (ColorDialog colorDialog = new ColorDialog())
             {
-                Clipboard.SetImage(copyBmp);
-            }
-        }
+                colorDialog.Color = currentColor;
 
-        public void btnPaste_Click(object sender, EventArgs e)
-        {
-            if (!Clipboard.ContainsImage()) return;
-
-            using (Image clipImg = Clipboard.GetImage())
-            {
-                if (clipImg == null) return;
-                g.DrawImage(clipImg, 0, 0);
-                pctrbox.Invalidate();
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                {
+                    currentColor = colorDialog.Color;
+                    btnpalette.BackColor = currentColor;
+                }
             }
+
         }
     }
 }
