@@ -58,6 +58,7 @@
             btnImage = new Button();
             panel2 = new Panel();
             pnlClipboard = new Panel();
+            button7 = new Button();
             btnCopiboard = new Button();
             label1 = new Label();
             pnlBorder = new Panel();
@@ -144,7 +145,7 @@
             pnlColor.Controls.Add(lblColor);
             pnlColor.Controls.Add(btnclrBlack);
             pnlColor.Controls.Add(panel7);
-            pnlColor.Location = new Point(427, 5);
+            pnlColor.Location = new Point(623, 6);
             pnlColor.Name = "pnlColor";
             pnlColor.Size = new Size(100, 100);
             pnlColor.TabIndex = 5;
@@ -239,9 +240,9 @@
             pnlShapes.Controls.Add(lblShapes);
             pnlShapes.Controls.Add(btnCircle);
             pnlShapes.Controls.Add(panel6);
-            pnlShapes.Location = new Point(314, 5);
+            pnlShapes.Location = new Point(453, 5);
             pnlShapes.Name = "pnlShapes";
-            pnlShapes.Size = new Size(107, 100);
+            pnlShapes.Size = new Size(164, 100);
             pnlShapes.TabIndex = 4;
             // 
             // button6
@@ -302,7 +303,7 @@
             lblShapes.ForeColor = Color.Gray;
             lblShapes.Location = new Point(0, 80);
             lblShapes.Name = "lblShapes";
-            lblShapes.Size = new Size(106, 20);
+            lblShapes.Size = new Size(163, 20);
             lblShapes.TabIndex = 1;
             lblShapes.Text = "Shapes";
             lblShapes.TextAlign = ContentAlignment.MiddleCenter;
@@ -328,7 +329,7 @@
             // 
             panel6.BackColor = Color.LightGray;
             panel6.Dock = DockStyle.Right;
-            panel6.Location = new Point(106, 0);
+            panel6.Location = new Point(163, 0);
             panel6.Name = "panel6";
             panel6.Size = new Size(1, 100);
             panel6.TabIndex = 0;
@@ -339,9 +340,9 @@
             pnlTools.Controls.Add(btnEraser);
             pnlTools.Controls.Add(btnBrush);
             pnlTools.Controls.Add(panel4);
-            pnlTools.Location = new Point(196, 5);
+            pnlTools.Location = new Point(247, 6);
             pnlTools.Name = "pnlTools";
-            pnlTools.Size = new Size(112, 100);
+            pnlTools.Size = new Size(207, 100);
             pnlTools.TabIndex = 4;
             // 
             // lblTools
@@ -351,7 +352,7 @@
             lblTools.ForeColor = Color.Gray;
             lblTools.Location = new Point(0, 80);
             lblTools.Name = "lblTools";
-            lblTools.Size = new Size(111, 20);
+            lblTools.Size = new Size(206, 20);
             lblTools.TabIndex = 1;
             lblTools.Text = "Tools";
             lblTools.TextAlign = ContentAlignment.MiddleCenter;
@@ -395,7 +396,7 @@
             // 
             panel4.BackColor = Color.LightGray;
             panel4.Dock = DockStyle.Right;
-            panel4.Location = new Point(111, 0);
+            panel4.Location = new Point(206, 0);
             panel4.Name = "panel4";
             panel4.Size = new Size(1, 100);
             panel4.TabIndex = 0;
@@ -405,7 +406,7 @@
             pnlImage.Controls.Add(lblImage);
             pnlImage.Controls.Add(btnImage);
             pnlImage.Controls.Add(panel2);
-            pnlImage.Location = new Point(100, 5);
+            pnlImage.Location = new Point(151, 6);
             pnlImage.Name = "pnlImage";
             pnlImage.Size = new Size(90, 100);
             pnlImage.TabIndex = 3;
@@ -450,13 +451,31 @@
             // 
             // pnlClipboard
             // 
+            pnlClipboard.Controls.Add(button7);
             pnlClipboard.Controls.Add(btnCopiboard);
             pnlClipboard.Controls.Add(label1);
             pnlClipboard.Controls.Add(pnlBorder);
             pnlClipboard.Location = new Point(5, 5);
             pnlClipboard.Name = "pnlClipboard";
-            pnlClipboard.Size = new Size(90, 100);
+            pnlClipboard.Size = new Size(140, 100);
             pnlClipboard.TabIndex = 0;
+            // 
+            // button7
+            // 
+            button7.Cursor = Cursors.Hand;
+            button7.FlatAppearance.BorderSize = 0;
+            button7.FlatStyle = FlatStyle.Flat;
+            button7.Image = Properties.Resources.free_icon_paste_4043782;
+            button7.ImageAlign = ContentAlignment.TopCenter;
+            button7.Location = new Point(82, 4);
+            button7.Name = "button7";
+            button7.Size = new Size(51, 72);
+            button7.TabIndex = 3;
+            button7.Text = "Copy";
+            button7.TextAlign = ContentAlignment.BottomCenter;
+            button7.TextImageRelation = TextImageRelation.ImageAboveText;
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += btnCopy_Click;
             // 
             // btnCopiboard
             // 
@@ -467,12 +486,13 @@
             btnCopiboard.ImageAlign = ContentAlignment.TopCenter;
             btnCopiboard.Location = new Point(5, 5);
             btnCopiboard.Name = "btnCopiboard";
-            btnCopiboard.Size = new Size(78, 72);
+            btnCopiboard.Size = new Size(51, 72);
             btnCopiboard.TabIndex = 2;
             btnCopiboard.Text = "Paste";
             btnCopiboard.TextAlign = ContentAlignment.BottomCenter;
             btnCopiboard.TextImageRelation = TextImageRelation.ImageAboveText;
             btnCopiboard.UseVisualStyleBackColor = true;
+            btnCopiboard.Click += btnPaste_Click;
             // 
             // label1
             // 
@@ -481,7 +501,7 @@
             label1.ForeColor = Color.Gray;
             label1.Location = new Point(0, 80);
             label1.Name = "label1";
-            label1.Size = new Size(89, 20);
+            label1.Size = new Size(139, 20);
             label1.TabIndex = 1;
             label1.Text = "Clipboard";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -490,7 +510,7 @@
             // 
             pnlBorder.BackColor = Color.LightGray;
             pnlBorder.Dock = DockStyle.Right;
-            pnlBorder.Location = new Point(89, 0);
+            pnlBorder.Location = new Point(139, 0);
             pnlBorder.Name = "pnlBorder";
             pnlBorder.Size = new Size(1, 100);
             pnlBorder.TabIndex = 0;
@@ -644,5 +664,6 @@
         private Button btnclrRed;
         private Button btnclrWhite;
         private Button btnpalette;
+        private Button button7;
     }
 }
