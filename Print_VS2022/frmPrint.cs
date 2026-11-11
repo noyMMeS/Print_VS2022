@@ -16,6 +16,8 @@ namespace Print_VS2022
         public string currentTool = "Brush";
         public Color currentColor = Color.Black;
         public Rectangle selectionRect;
+        public bool isFillShape = false;
+        public SolidBrush superBrush = new SolidBrush(Color.Black);
 
         public frmPrint()
         {
@@ -164,10 +166,10 @@ namespace Print_VS2022
 
             switch (tool.ToLower())
             {
-                case "rectangle": gr.DrawRectangle(pen, rect); break;
-                case "square": gr.DrawRectangle(pen, new Rectangle(rect.X, rect.Y, side, side)); break;
-                case "circle": gr.DrawEllipse(pen, rect); break;
-                case "triangle": gr.DrawPolygon(pen, triangle); break;
+                case "rectangle": gr.DrawRectangle(pen, rect); if (isFillShape) gr.FillRectangle(superBrush, rect); break;
+                case "square": gr.DrawRectangle(pen, new Rectangle(rect.X, rect.Y, side, side)); if (isFillShape) gr.FillRectangle(superBrush, rect); break;
+                case "circle": gr.DrawEllipse(pen, rect); if (isFillShape) gr.FillRectangle(superBrush, rect); break;
+                case "triangle": gr.DrawPolygon(pen, triangle); if (isFillShape) gr.FillRectangle(superBrush, rect); break;
             }
         }
 
@@ -176,7 +178,7 @@ namespace Print_VS2022
             Math.Min(p1.Y, p2.Y),
             Math.Abs(p1.X - p2.X),
             Math.Abs(p1.Y - p2.Y)
-        );
+   );
 
         public void FloodFill(Point start, Color fillColor)
         {
@@ -221,5 +223,19 @@ namespace Print_VS2022
             }
 
         }
+        public void btnFillToggle_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog colorDialog = new ColorDialog())
+            {
+                colorDialog.Color = currentColor;
+
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                {
+                    superBrush.Color = currentColor;
+                    isFillShape = true;
+                }
+            }
+        }
+
     }
 }

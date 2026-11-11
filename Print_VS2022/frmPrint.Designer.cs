@@ -42,6 +42,7 @@
             btnclrBlack = new Button();
             panel7 = new Panel();
             pnlShapes = new Panel();
+            btnFillToggle = new Button();
             btnTriangle = new Button();
             btnSquare = new Button();
             btnRectangle = new Button();
@@ -49,6 +50,8 @@
             btnCircle = new Button();
             panel6 = new Panel();
             pnlTools = new Panel();
+            btnFill = new Button();
+            btnPen = new Button();
             lblTools = new Label();
             btnEraser = new Button();
             btnBrush = new Button();
@@ -68,8 +71,6 @@
             button2 = new Button();
             button1 = new Button();
             pctrbox = new PictureBox();
-            btnPen = new Button();
-            btnFill = new Button();
             statusStrip1.SuspendLayout();
             panelMain.SuspendLayout();
             pnlRibbon.SuspendLayout();
@@ -147,7 +148,7 @@
             pnlColor.Controls.Add(lblColor);
             pnlColor.Controls.Add(btnclrBlack);
             pnlColor.Controls.Add(panel7);
-            pnlColor.Location = new Point(702, 7);
+            pnlColor.Location = new Point(633, 3);
             pnlColor.Name = "pnlColor";
             pnlColor.Size = new Size(100, 100);
             pnlColor.TabIndex = 5;
@@ -236,16 +237,34 @@
             // 
             // pnlShapes
             // 
+            pnlShapes.Controls.Add(btnFillToggle);
             pnlShapes.Controls.Add(btnTriangle);
             pnlShapes.Controls.Add(btnSquare);
             pnlShapes.Controls.Add(btnRectangle);
             pnlShapes.Controls.Add(lblShapes);
             pnlShapes.Controls.Add(btnCircle);
             pnlShapes.Controls.Add(panel6);
-            pnlShapes.Location = new Point(532, 6);
+            pnlShapes.Location = new Point(473, 3);
             pnlShapes.Name = "pnlShapes";
-            pnlShapes.Size = new Size(164, 100);
+            pnlShapes.Size = new Size(155, 100);
             pnlShapes.TabIndex = 4;
+            // 
+            // btnFillToggle
+            // 
+            btnFillToggle.Cursor = Cursors.Hand;
+            btnFillToggle.FlatAppearance.BorderSize = 0;
+            btnFillToggle.FlatStyle = FlatStyle.Flat;
+            btnFillToggle.Image = Properties.Resources.paint_bucket__1_;
+            btnFillToggle.ImageAlign = ContentAlignment.TopCenter;
+            btnFillToggle.Location = new Point(108, 23);
+            btnFillToggle.Name = "btnFillToggle";
+            btnFillToggle.Size = new Size(44, 40);
+            btnFillToggle.TabIndex = 6;
+            btnFillToggle.Tag = "Circle";
+            btnFillToggle.TextAlign = ContentAlignment.BottomCenter;
+            btnFillToggle.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnFillToggle.UseVisualStyleBackColor = true;
+            btnFillToggle.Click += btnFillToggle_Click;
             // 
             // btnTriangle
             // 
@@ -305,7 +324,7 @@
             lblShapes.ForeColor = Color.Gray;
             lblShapes.Location = new Point(0, 80);
             lblShapes.Name = "lblShapes";
-            lblShapes.Size = new Size(163, 20);
+            lblShapes.Size = new Size(154, 20);
             lblShapes.TabIndex = 1;
             lblShapes.Text = "Shapes";
             lblShapes.TextAlign = ContentAlignment.MiddleCenter;
@@ -331,7 +350,7 @@
             // 
             panel6.BackColor = Color.LightGray;
             panel6.Dock = DockStyle.Right;
-            panel6.Location = new Point(163, 0);
+            panel6.Location = new Point(154, 0);
             panel6.Name = "panel6";
             panel6.Size = new Size(1, 100);
             panel6.TabIndex = 0;
@@ -344,10 +363,44 @@
             pnlTools.Controls.Add(btnEraser);
             pnlTools.Controls.Add(btnBrush);
             pnlTools.Controls.Add(panel4);
-            pnlTools.Location = new Point(306, 0);
+            pnlTools.Location = new Point(247, 3);
             pnlTools.Name = "pnlTools";
             pnlTools.Size = new Size(220, 100);
             pnlTools.TabIndex = 4;
+            // 
+            // btnFill
+            // 
+            btnFill.Cursor = Cursors.Hand;
+            btnFill.FlatAppearance.BorderSize = 0;
+            btnFill.FlatStyle = FlatStyle.Flat;
+            btnFill.Image = Properties.Resources.paint_bucket;
+            btnFill.ImageAlign = ContentAlignment.TopCenter;
+            btnFill.Location = new Point(163, 10);
+            btnFill.Name = "btnFill";
+            btnFill.Size = new Size(47, 72);
+            btnFill.TabIndex = 4;
+            btnFill.Text = "Fill";
+            btnFill.TextAlign = ContentAlignment.BottomCenter;
+            btnFill.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnFill.UseVisualStyleBackColor = true;
+            btnFill.Click += btnTools_Click;
+            // 
+            // btnPen
+            // 
+            btnPen.Cursor = Cursors.Hand;
+            btnPen.FlatAppearance.BorderSize = 0;
+            btnPen.FlatStyle = FlatStyle.Flat;
+            btnPen.Image = Properties.Resources.pen;
+            btnPen.ImageAlign = ContentAlignment.TopCenter;
+            btnPen.Location = new Point(5, 5);
+            btnPen.Name = "btnPen";
+            btnPen.Size = new Size(47, 72);
+            btnPen.TabIndex = 3;
+            btnPen.Text = "Pen";
+            btnPen.TextAlign = ContentAlignment.BottomCenter;
+            btnPen.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnPen.UseVisualStyleBackColor = true;
+            btnPen.Click += btnTools_Click;
             // 
             // lblTools
             // 
@@ -600,40 +653,6 @@
             pctrbox.MouseMove += pctrbox_MouseMove;
             pctrbox.MouseUp += pctrbox_MouseUp;
             // 
-            // btnPen
-            // 
-            btnPen.Cursor = Cursors.Hand;
-            btnPen.FlatAppearance.BorderSize = 0;
-            btnPen.FlatStyle = FlatStyle.Flat;
-            btnPen.Image = Properties.Resources.pen;
-            btnPen.ImageAlign = ContentAlignment.TopCenter;
-            btnPen.Location = new Point(5, 5);
-            btnPen.Name = "btnPen";
-            btnPen.Size = new Size(47, 72);
-            btnPen.TabIndex = 3;
-            btnPen.Text = "Pen";
-            btnPen.TextAlign = ContentAlignment.BottomCenter;
-            btnPen.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnPen.UseVisualStyleBackColor = true;
-            btnPen.Click += btnTools_Click;
-            // 
-            // btnFill
-            // 
-            btnFill.Cursor = Cursors.Hand;
-            btnFill.FlatAppearance.BorderSize = 0;
-            btnFill.FlatStyle = FlatStyle.Flat;
-            btnFill.Image = Properties.Resources.paint_bucket;
-            btnFill.ImageAlign = ContentAlignment.TopCenter;
-            btnFill.Location = new Point(163, 5);
-            btnFill.Name = "btnFill";
-            btnFill.Size = new Size(47, 72);
-            btnFill.TabIndex = 4;
-            btnFill.Text = "Fill";
-            btnFill.TextAlign = ContentAlignment.BottomCenter;
-            btnFill.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnFill.UseVisualStyleBackColor = true;
-            btnFill.Click += btnTools_Click;
-            // 
             // frmPrint
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -706,5 +725,6 @@
         private Button button8;
         private Button btnFill;
         private Button btnPen;
+        private Button btnFillToggle;
     }
 }
