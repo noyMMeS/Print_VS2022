@@ -42,9 +42,9 @@
             btnclrBlack = new Button();
             panel7 = new Panel();
             pnlShapes = new Panel();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
+            btnTriangle = new Button();
+            btnSquare = new Button();
+            btnRectangle = new Button();
             lblShapes = new Label();
             btnCircle = new Button();
             panel6 = new Panel();
@@ -58,8 +58,8 @@
             btnImage = new Button();
             panel2 = new Panel();
             pnlClipboard = new Panel();
-            button7 = new Button();
-            btnCopiboard = new Button();
+            btnCopy = new Button();
+            btnPaste = new Button();
             label1 = new Label();
             pnlBorder = new Panel();
             pnlTopBar = new Panel();
@@ -68,6 +68,8 @@
             button2 = new Button();
             button1 = new Button();
             pctrbox = new PictureBox();
+            btnPen = new Button();
+            btnFill = new Button();
             statusStrip1.SuspendLayout();
             panelMain.SuspendLayout();
             pnlRibbon.SuspendLayout();
@@ -145,7 +147,7 @@
             pnlColor.Controls.Add(lblColor);
             pnlColor.Controls.Add(btnclrBlack);
             pnlColor.Controls.Add(panel7);
-            pnlColor.Location = new Point(623, 6);
+            pnlColor.Location = new Point(702, 7);
             pnlColor.Name = "pnlColor";
             pnlColor.Size = new Size(100, 100);
             pnlColor.TabIndex = 5;
@@ -234,67 +236,67 @@
             // 
             // pnlShapes
             // 
-            pnlShapes.Controls.Add(button6);
-            pnlShapes.Controls.Add(button5);
-            pnlShapes.Controls.Add(button4);
+            pnlShapes.Controls.Add(btnTriangle);
+            pnlShapes.Controls.Add(btnSquare);
+            pnlShapes.Controls.Add(btnRectangle);
             pnlShapes.Controls.Add(lblShapes);
             pnlShapes.Controls.Add(btnCircle);
             pnlShapes.Controls.Add(panel6);
-            pnlShapes.Location = new Point(453, 5);
+            pnlShapes.Location = new Point(532, 6);
             pnlShapes.Name = "pnlShapes";
             pnlShapes.Size = new Size(164, 100);
             pnlShapes.TabIndex = 4;
             // 
-            // button6
+            // btnTriangle
             // 
-            button6.Cursor = Cursors.Hand;
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Image = Properties.Resources.triangle;
-            button6.ImageAlign = ContentAlignment.TopCenter;
-            button6.Location = new Point(53, 45);
-            button6.Name = "button6";
-            button6.Size = new Size(48, 40);
-            button6.TabIndex = 5;
-            button6.Tag = "triangle";
-            button6.TextAlign = ContentAlignment.BottomCenter;
-            button6.TextImageRelation = TextImageRelation.ImageAboveText;
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += btnTools_Click;
+            btnTriangle.Cursor = Cursors.Hand;
+            btnTriangle.FlatAppearance.BorderSize = 0;
+            btnTriangle.FlatStyle = FlatStyle.Flat;
+            btnTriangle.Image = Properties.Resources.triangle;
+            btnTriangle.ImageAlign = ContentAlignment.TopCenter;
+            btnTriangle.Location = new Point(53, 45);
+            btnTriangle.Name = "btnTriangle";
+            btnTriangle.Size = new Size(48, 40);
+            btnTriangle.TabIndex = 5;
+            btnTriangle.Tag = "triangle";
+            btnTriangle.TextAlign = ContentAlignment.BottomCenter;
+            btnTriangle.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnTriangle.UseVisualStyleBackColor = true;
+            btnTriangle.Click += btnTools_Click;
             // 
-            // button5
+            // btnSquare
             // 
-            button5.Cursor = Cursors.Hand;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Image = Properties.Resources.square;
-            button5.ImageAlign = ContentAlignment.TopCenter;
-            button5.Location = new Point(3, 45);
-            button5.Name = "button5";
-            button5.Size = new Size(44, 40);
-            button5.TabIndex = 4;
-            button5.Tag = "Square";
-            button5.TextAlign = ContentAlignment.BottomCenter;
-            button5.TextImageRelation = TextImageRelation.ImageAboveText;
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += btnTools_Click;
+            btnSquare.Cursor = Cursors.Hand;
+            btnSquare.FlatAppearance.BorderSize = 0;
+            btnSquare.FlatStyle = FlatStyle.Flat;
+            btnSquare.Image = Properties.Resources.square;
+            btnSquare.ImageAlign = ContentAlignment.TopCenter;
+            btnSquare.Location = new Point(3, 45);
+            btnSquare.Name = "btnSquare";
+            btnSquare.Size = new Size(44, 40);
+            btnSquare.TabIndex = 4;
+            btnSquare.Tag = "Square";
+            btnSquare.TextAlign = ContentAlignment.BottomCenter;
+            btnSquare.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnSquare.UseVisualStyleBackColor = true;
+            btnSquare.Click += btnTools_Click;
             // 
-            // button4
+            // btnRectangle
             // 
-            button4.Cursor = Cursors.Hand;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Image = Properties.Resources.rectangular_shape_outline;
-            button4.ImageAlign = ContentAlignment.TopCenter;
-            button4.Location = new Point(53, 1);
-            button4.Name = "button4";
-            button4.Size = new Size(44, 42);
-            button4.TabIndex = 3;
-            button4.Tag = "Rectangle";
-            button4.TextAlign = ContentAlignment.BottomCenter;
-            button4.TextImageRelation = TextImageRelation.ImageAboveText;
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += btnTools_Click;
+            btnRectangle.Cursor = Cursors.Hand;
+            btnRectangle.FlatAppearance.BorderSize = 0;
+            btnRectangle.FlatStyle = FlatStyle.Flat;
+            btnRectangle.Image = Properties.Resources.rectangular_shape_outline;
+            btnRectangle.ImageAlign = ContentAlignment.TopCenter;
+            btnRectangle.Location = new Point(53, 1);
+            btnRectangle.Name = "btnRectangle";
+            btnRectangle.Size = new Size(44, 42);
+            btnRectangle.TabIndex = 3;
+            btnRectangle.Tag = "Rectangle";
+            btnRectangle.TextAlign = ContentAlignment.BottomCenter;
+            btnRectangle.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnRectangle.UseVisualStyleBackColor = true;
+            btnRectangle.Click += btnTools_Click;
             // 
             // lblShapes
             // 
@@ -336,13 +338,15 @@
             // 
             // pnlTools
             // 
+            pnlTools.Controls.Add(btnFill);
+            pnlTools.Controls.Add(btnPen);
             pnlTools.Controls.Add(lblTools);
             pnlTools.Controls.Add(btnEraser);
             pnlTools.Controls.Add(btnBrush);
             pnlTools.Controls.Add(panel4);
-            pnlTools.Location = new Point(247, 6);
+            pnlTools.Location = new Point(306, 0);
             pnlTools.Name = "pnlTools";
-            pnlTools.Size = new Size(207, 100);
+            pnlTools.Size = new Size(220, 100);
             pnlTools.TabIndex = 4;
             // 
             // lblTools
@@ -352,7 +356,7 @@
             lblTools.ForeColor = Color.Gray;
             lblTools.Location = new Point(0, 80);
             lblTools.Name = "lblTools";
-            lblTools.Size = new Size(206, 20);
+            lblTools.Size = new Size(219, 20);
             lblTools.TabIndex = 1;
             lblTools.Text = "Tools";
             lblTools.TextAlign = ContentAlignment.MiddleCenter;
@@ -364,9 +368,9 @@
             btnEraser.FlatAppearance.BorderSize = 0;
             btnEraser.Image = Properties.Resources.eraser;
             btnEraser.ImageAlign = ContentAlignment.TopCenter;
-            btnEraser.Location = new Point(49, 5);
+            btnEraser.Location = new Point(58, 5);
             btnEraser.Name = "btnEraser";
-            btnEraser.Size = new Size(46, 72);
+            btnEraser.Size = new Size(46, 70);
             btnEraser.TabIndex = 2;
             btnEraser.Tag = "Eraser";
             btnEraser.Text = "Eraser";
@@ -382,9 +386,9 @@
             btnBrush.FlatStyle = FlatStyle.Flat;
             btnBrush.Image = Properties.Resources.paintbrush;
             btnBrush.ImageAlign = ContentAlignment.TopCenter;
-            btnBrush.Location = new Point(5, 3);
+            btnBrush.Location = new Point(110, 5);
             btnBrush.Name = "btnBrush";
-            btnBrush.Size = new Size(49, 58);
+            btnBrush.Size = new Size(47, 72);
             btnBrush.TabIndex = 2;
             btnBrush.Text = "brush";
             btnBrush.TextAlign = ContentAlignment.BottomCenter;
@@ -396,7 +400,7 @@
             // 
             panel4.BackColor = Color.LightGray;
             panel4.Dock = DockStyle.Right;
-            panel4.Location = new Point(206, 0);
+            panel4.Location = new Point(219, 0);
             panel4.Name = "panel4";
             panel4.Size = new Size(1, 100);
             panel4.TabIndex = 0;
@@ -451,8 +455,8 @@
             // 
             // pnlClipboard
             // 
-            pnlClipboard.Controls.Add(button7);
-            pnlClipboard.Controls.Add(btnCopiboard);
+            pnlClipboard.Controls.Add(btnCopy);
+            pnlClipboard.Controls.Add(btnPaste);
             pnlClipboard.Controls.Add(label1);
             pnlClipboard.Controls.Add(pnlBorder);
             pnlClipboard.Location = new Point(5, 5);
@@ -460,39 +464,39 @@
             pnlClipboard.Size = new Size(140, 100);
             pnlClipboard.TabIndex = 0;
             // 
-            // button7
+            // btnCopy
             // 
-            button7.Cursor = Cursors.Hand;
-            button7.FlatAppearance.BorderSize = 0;
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Image = Properties.Resources.free_icon_paste_4043782;
-            button7.ImageAlign = ContentAlignment.TopCenter;
-            button7.Location = new Point(82, 4);
-            button7.Name = "button7";
-            button7.Size = new Size(51, 72);
-            button7.TabIndex = 3;
-            button7.Text = "Copy";
-            button7.TextAlign = ContentAlignment.BottomCenter;
-            button7.TextImageRelation = TextImageRelation.ImageAboveText;
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += btnCopy_Click;
+            btnCopy.Cursor = Cursors.Hand;
+            btnCopy.FlatAppearance.BorderSize = 0;
+            btnCopy.FlatStyle = FlatStyle.Flat;
+            btnCopy.Image = Properties.Resources.free_icon_paste_4043782;
+            btnCopy.ImageAlign = ContentAlignment.TopCenter;
+            btnCopy.Location = new Point(82, 4);
+            btnCopy.Name = "btnCopy";
+            btnCopy.Size = new Size(51, 72);
+            btnCopy.TabIndex = 3;
+            btnCopy.Text = "Copy";
+            btnCopy.TextAlign = ContentAlignment.BottomCenter;
+            btnCopy.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnCopy.UseVisualStyleBackColor = true;
+            btnCopy.Click += btnCopy_Click;
             // 
-            // btnCopiboard
+            // btnPaste
             // 
-            btnCopiboard.Cursor = Cursors.Hand;
-            btnCopiboard.FlatAppearance.BorderSize = 0;
-            btnCopiboard.FlatStyle = FlatStyle.Flat;
-            btnCopiboard.Image = Properties.Resources.free_icon_paste_4043782;
-            btnCopiboard.ImageAlign = ContentAlignment.TopCenter;
-            btnCopiboard.Location = new Point(5, 5);
-            btnCopiboard.Name = "btnCopiboard";
-            btnCopiboard.Size = new Size(51, 72);
-            btnCopiboard.TabIndex = 2;
-            btnCopiboard.Text = "Paste";
-            btnCopiboard.TextAlign = ContentAlignment.BottomCenter;
-            btnCopiboard.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnCopiboard.UseVisualStyleBackColor = true;
-            btnCopiboard.Click += btnPaste_Click;
+            btnPaste.Cursor = Cursors.Hand;
+            btnPaste.FlatAppearance.BorderSize = 0;
+            btnPaste.FlatStyle = FlatStyle.Flat;
+            btnPaste.Image = Properties.Resources.free_icon_paste_4043782;
+            btnPaste.ImageAlign = ContentAlignment.TopCenter;
+            btnPaste.Location = new Point(5, 5);
+            btnPaste.Name = "btnPaste";
+            btnPaste.Size = new Size(51, 72);
+            btnPaste.TabIndex = 2;
+            btnPaste.Text = "Paste";
+            btnPaste.TextAlign = ContentAlignment.BottomCenter;
+            btnPaste.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnPaste.UseVisualStyleBackColor = true;
+            btnPaste.Click += btnPaste_Click;
             // 
             // label1
             // 
@@ -596,6 +600,40 @@
             pctrbox.MouseMove += pctrbox_MouseMove;
             pctrbox.MouseUp += pctrbox_MouseUp;
             // 
+            // btnPen
+            // 
+            btnPen.Cursor = Cursors.Hand;
+            btnPen.FlatAppearance.BorderSize = 0;
+            btnPen.FlatStyle = FlatStyle.Flat;
+            btnPen.Image = Properties.Resources.pen;
+            btnPen.ImageAlign = ContentAlignment.TopCenter;
+            btnPen.Location = new Point(5, 5);
+            btnPen.Name = "btnPen";
+            btnPen.Size = new Size(47, 72);
+            btnPen.TabIndex = 3;
+            btnPen.Text = "Pen";
+            btnPen.TextAlign = ContentAlignment.BottomCenter;
+            btnPen.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnPen.UseVisualStyleBackColor = true;
+            btnPen.Click += btnTools_Click;
+            // 
+            // btnFill
+            // 
+            btnFill.Cursor = Cursors.Hand;
+            btnFill.FlatAppearance.BorderSize = 0;
+            btnFill.FlatStyle = FlatStyle.Flat;
+            btnFill.Image = Properties.Resources.paint_bucket;
+            btnFill.ImageAlign = ContentAlignment.TopCenter;
+            btnFill.Location = new Point(163, 5);
+            btnFill.Name = "btnFill";
+            btnFill.Size = new Size(47, 72);
+            btnFill.TabIndex = 4;
+            btnFill.Text = "Fill";
+            btnFill.TextAlign = ContentAlignment.BottomCenter;
+            btnFill.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnFill.UseVisualStyleBackColor = true;
+            btnFill.Click += btnTools_Click;
+            // 
             // frmPrint
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -637,7 +675,7 @@
         private Panel pnlClipboard;
         private Panel pnlBorder;
         private Label label1;
-        private Button btnCopiboard;
+        private Button btnPaste;
         private Button btnImage;
         private Panel pnlImage;
         private Label lblImage;
@@ -658,12 +696,15 @@
         private ToolStripStatusLabel lblCords;
         private ToolStripStatusLabel lblSize;
         private ToolStripStatusLabel lblZoom;
-        private Button button4;
-        private Button button6;
-        private Button button5;
+        private Button btnRectangle;
+        private Button btnTriangle;
+        private Button btnSquare;
         private Button btnclrRed;
         private Button btnclrWhite;
         private Button btnpalette;
-        private Button button7;
+        private Button btnCopy;
+        private Button button8;
+        private Button btnFill;
+        private Button btnPen;
     }
 }

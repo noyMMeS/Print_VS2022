@@ -133,6 +133,16 @@ namespace Print_VS2022.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap paint_bucket {
+            get {
+                object obj = ResourceManager.GetObject("paint-bucket", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap paintbrush {
             get {
                 object obj = ResourceManager.GetObject("paintbrush", resourceCulture);
@@ -146,6 +156,16 @@ namespace Print_VS2022.Properties {
         internal static System.Drawing.Bitmap paste {
             get {
                 object obj = ResourceManager.GetObject("paste", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pen {
+            get {
+                object obj = ResourceManager.GetObject("pen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
