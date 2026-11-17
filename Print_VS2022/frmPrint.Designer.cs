@@ -67,10 +67,15 @@
             pnlBorder = new Panel();
             pnlTopBar = new Panel();
             pnlIndicator = new Panel();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            btnView = new Button();
+            btnHome = new Button();
+            btnFile = new Button();
             pctrbox = new PictureBox();
+            btnMove = new Button();
+            btnClear = new Button();
+            pnlView = new Panel();
+            btnZoomIn = new Button();
+            btnZoomOut = new Button();
             statusStrip1.SuspendLayout();
             panelMain.SuspendLayout();
             pnlRibbon.SuspendLayout();
@@ -81,6 +86,7 @@
             pnlClipboard.SuspendLayout();
             pnlTopBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pctrbox).BeginInit();
+            pnlView.SuspendLayout();
             SuspendLayout();
             // 
             // statusStrip1
@@ -102,13 +108,13 @@
             // lblSize
             // 
             lblSize.Name = "lblSize";
-            lblSize.Size = new Size(54, 17);
+            lblSize.Size = new Size(55, 17);
             lblSize.Text = "800 x 600";
             // 
             // lblZoom
             // 
             lblZoom.Name = "lblZoom";
-            lblZoom.Size = new Size(748, 17);
+            lblZoom.Size = new Size(747, 17);
             lblZoom.Spring = true;
             lblZoom.Text = "100%";
             // 
@@ -116,6 +122,7 @@
             // 
             panelMain.AutoScroll = true;
             panelMain.BackColor = SystemColors.AppWorkspace;
+            panelMain.Controls.Add(pnlView);
             panelMain.Controls.Add(pnlRibbon);
             panelMain.Controls.Add(pnlTopBar);
             panelMain.Controls.Add(pctrbox);
@@ -128,6 +135,8 @@
             // pnlRibbon
             // 
             pnlRibbon.BackColor = Color.White;
+            pnlRibbon.Controls.Add(btnClear);
+            pnlRibbon.Controls.Add(btnMove);
             pnlRibbon.Controls.Add(pnlColor);
             pnlRibbon.Controls.Add(pnlShapes);
             pnlRibbon.Controls.Add(pnlTools);
@@ -576,9 +585,9 @@
             // 
             pnlTopBar.BackColor = Color.White;
             pnlTopBar.Controls.Add(pnlIndicator);
-            pnlTopBar.Controls.Add(button3);
-            pnlTopBar.Controls.Add(button2);
-            pnlTopBar.Controls.Add(button1);
+            pnlTopBar.Controls.Add(btnView);
+            pnlTopBar.Controls.Add(btnHome);
+            pnlTopBar.Controls.Add(btnFile);
             pnlTopBar.Dock = DockStyle.Top;
             pnlTopBar.Location = new Point(0, 0);
             pnlTopBar.Name = "pnlTopBar";
@@ -593,50 +602,53 @@
             pnlIndicator.Size = new Size(80, 3);
             pnlIndicator.TabIndex = 3;
             // 
-            // button3
+            // btnView
             // 
-            button3.BackColor = Color.Transparent;
-            button3.Cursor = Cursors.Hand;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 10F);
-            button3.ForeColor = Color.Black;
-            button3.Location = new Point(170, 0);
-            button3.Name = "button3";
-            button3.Size = new Size(80, 37);
-            button3.TabIndex = 2;
-            button3.Text = "View";
-            button3.UseVisualStyleBackColor = false;
+            btnView.BackColor = Color.Transparent;
+            btnView.Cursor = Cursors.Hand;
+            btnView.FlatAppearance.BorderSize = 0;
+            btnView.FlatStyle = FlatStyle.Flat;
+            btnView.Font = new Font("Segoe UI", 10F);
+            btnView.ForeColor = Color.Black;
+            btnView.Location = new Point(170, 0);
+            btnView.Name = "btnView";
+            btnView.Size = new Size(80, 37);
+            btnView.TabIndex = 2;
+            btnView.Text = "View";
+            btnView.UseVisualStyleBackColor = false;
+            btnView.Click += btnTab_Click;
             // 
-            // button2
+            // btnHome
             // 
-            button2.BackColor = Color.Transparent;
-            button2.Cursor = Cursors.Hand;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 10F);
-            button2.ForeColor = Color.Black;
-            button2.Location = new Point(90, 0);
-            button2.Name = "button2";
-            button2.Size = new Size(80, 37);
-            button2.TabIndex = 1;
-            button2.Text = "Home";
-            button2.UseVisualStyleBackColor = false;
+            btnHome.BackColor = Color.Transparent;
+            btnHome.Cursor = Cursors.Hand;
+            btnHome.FlatAppearance.BorderSize = 0;
+            btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.Font = new Font("Segoe UI", 10F);
+            btnHome.ForeColor = Color.Black;
+            btnHome.Location = new Point(90, 0);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(80, 37);
+            btnHome.TabIndex = 1;
+            btnHome.Text = "Home";
+            btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += btnTab_Click;
             // 
-            // button1
+            // btnFile
             // 
-            button1.BackColor = Color.Transparent;
-            button1.Cursor = Cursors.Hand;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 10F);
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(10, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(80, 37);
-            button1.TabIndex = 0;
-            button1.Text = "File";
-            button1.UseVisualStyleBackColor = false;
+            btnFile.BackColor = Color.Transparent;
+            btnFile.Cursor = Cursors.Hand;
+            btnFile.FlatAppearance.BorderSize = 0;
+            btnFile.FlatStyle = FlatStyle.Flat;
+            btnFile.Font = new Font("Segoe UI", 10F);
+            btnFile.ForeColor = Color.Black;
+            btnFile.Location = new Point(10, 0);
+            btnFile.Name = "btnFile";
+            btnFile.Size = new Size(80, 37);
+            btnFile.TabIndex = 0;
+            btnFile.Text = "File";
+            btnFile.UseVisualStyleBackColor = false;
+            btnFile.Click += btnFile_Click;
             // 
             // pctrbox
             // 
@@ -652,6 +664,61 @@
             pctrbox.MouseDown += pctrbox_MouseDown;
             pctrbox.MouseMove += pctrbox_MouseMove;
             pctrbox.MouseUp += pctrbox_MouseUp;
+            // 
+            // btnMove
+            // 
+            btnMove.ForeColor = Color.White;
+            btnMove.Image = Properties.Resources.expand_arrows;
+            btnMove.Location = new Point(741, 8);
+            btnMove.Name = "btnMove";
+            btnMove.Size = new Size(46, 38);
+            btnMove.TabIndex = 6;
+            btnMove.UseVisualStyleBackColor = true;
+            btnMove.Click += btnMove_Click;
+            // 
+            // btnClear
+            // 
+            btnClear.ForeColor = Color.White;
+            btnClear.Image = Properties.Resources.trash;
+            btnClear.Location = new Point(741, 57);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(46, 38);
+            btnClear.TabIndex = 7;
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
+            // 
+            // pnlView
+            // 
+            pnlView.BackColor = Color.White;
+            pnlView.Controls.Add(btnZoomOut);
+            pnlView.Controls.Add(btnZoomIn);
+            pnlView.Dock = DockStyle.Top;
+            pnlView.Location = new Point(0, 150);
+            pnlView.Name = "pnlView";
+            pnlView.Size = new Size(865, 110);
+            pnlView.TabIndex = 4;
+            // 
+            // btnZoomIn
+            // 
+            btnZoomIn.ForeColor = Color.Black;
+            btnZoomIn.Location = new Point(10, 6);
+            btnZoomIn.Name = "btnZoomIn";
+            btnZoomIn.Size = new Size(46, 38);
+            btnZoomIn.TabIndex = 8;
+            btnZoomIn.Text = "+";
+            btnZoomIn.UseVisualStyleBackColor = true;
+            btnZoomIn.Click += btnZoomIn_Click;
+            // 
+            // btnZoomOut
+            // 
+            btnZoomOut.ForeColor = Color.Black;
+            btnZoomOut.Location = new Point(62, 6);
+            btnZoomOut.Name = "btnZoomOut";
+            btnZoomOut.Size = new Size(46, 38);
+            btnZoomOut.TabIndex = 9;
+            btnZoomOut.Text = "-";
+            btnZoomOut.UseVisualStyleBackColor = true;
+            btnZoomOut.Click += btnZoomOut_Click;
             // 
             // frmPrint
             // 
@@ -674,6 +741,7 @@
             pnlClipboard.ResumeLayout(false);
             pnlTopBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pctrbox).EndInit();
+            pnlView.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
 
@@ -686,9 +754,9 @@
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.PictureBox pctrbox;
         private Panel pnlTopBar;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnFile;
+        private Button btnHome;
+        private Button btnView;
         private Panel pnlIndicator;
         private Panel pnlRibbon;
         private Panel pnlClipboard;
@@ -726,5 +794,10 @@
         private Button btnFill;
         private Button btnPen;
         private Button btnFillToggle;
+        private Button btnClear;
+        private Button btnMove;
+        private Panel pnlView;
+        private Button btnZoomOut;
+        private Button btnZoomIn;
     }
 }
